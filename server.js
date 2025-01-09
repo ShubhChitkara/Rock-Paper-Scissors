@@ -17,21 +17,24 @@ function getHumanChoice() {
     container.appendChild(scissorsbtn);
 
     rockbtn.addEventListener("click", () => {
-        let humanchoice="ROCK"
+        let humanchoice = "ROCK"
         playRound(humanchoice);
     });
     paperbtn.addEventListener("click", () => {
-        let humanchoice="PAPER"
+        let humanchoice = "PAPER"
         playRound(humanchoice);
     });
     scissorsbtn.addEventListener("click", () => {
-        let humanchoice="SCISSORS"
+        let humanchoice = "SCISSORS"
         playRound(humanchoice);
     });
-    
+
 }
 
 function playRound(humanchoice) {
+    const divhuman = document.createElement("div");
+    divhuman.textContent = `Human chooses ${humanchoice}!`;
+    container.appendChild(divhuman);
     console.log(`Human chooses ${humanchoice}`);
     function getComputerChoice() {
         let randnum = Math.floor(Math.random() * 3);
@@ -47,6 +50,9 @@ function playRound(humanchoice) {
         }
     }
     let computerchoice = getComputerChoice();
+    const divcomputer = document.createElement("div");
+    divcomputer.textContent = `Computer chooses ${computerchoice}!`;
+    container.appendChild(divcomputer);
     console.log(`Computer chooses ${computerchoice}`);
 
     let humanscore = 0;
@@ -54,42 +60,62 @@ function playRound(humanchoice) {
 
     if (humanchoice == "ROCK" && computerchoice == "SCISSORS") {
         humanscore += 1;
-        console.log("Human wins!");
+        const div = document.createElement("div");
+        div.textContent = "Human wins!";
+        container.appendChild(div);
     }
     else if (humanchoice == "ROCK" && computerchoice == "PAPER") {
         computerscore += 1;
-        console.log("Computer wins!");
+        const div = document.createElement("div");
+        div.textContent = "Computer wins!"
+        container.appendChild(div);
     }
     else if (humanchoice == "ROCK" && computerchoice == "ROCK") {
-        console.log("Game Tied!");
+        const div = document.createElement("div");
+        div.textContent = "Game Tied!"
+        container.appendChild(div);
     }
     else if (humanchoice == "PAPER" && computerchoice == "ROCK") {
         humanscore += 1;
-        console.log("Human wins!");
+        const div = document.createElement("div");
+        div.textContent = "Human wins!";
+        container.appendChild(div);
     }
     else if (humanchoice == "PAPER" && computerchoice == "SCISSORS") {
         computerscore += 1;
-        console.log("Computer wins!");
+        const div = document.createElement("div");
+        div.textContent = "Computer wins!";
+        container.appendChild(div);
     }
     else if (humanchoice == "PAPER" && computerchoice == "PAPER") {
-        console.log("Game Tied!");
+        const div = document.createElement("div");
+        div.textContent = "Game Tied!"
+        container.appendChild(div);
     }
     else if (humanchoice == "SCISSORS" && computerchoice == "ROCK") {
+        const div = document.createElement("div");
+        div.textContent = "Computer wins!"
         computerscore += 1;
-        console.log("Computer wins!");
+        container.appendChild(div);
     }
     else if (humanchoice == "SCISSORS" && computerchoice == "PAPER") {
+        const div = document.createElement("div");
+        div.textContent = "Human wins!"
         humanscore += 1;
-        console.log("Human wins!");
+        container.appendChild(div);
     }
     else if (humanchoice == "SCISSORS" && computerchoice == "SCISSORS") {
-        console.log("Game Tied!");
+        const div = document.createElement("div");
+        div.textContent = "Game Tied!"
+        container.appendChild(div);
     }
     else {
-        console.log("Error");
+        const div = document.createElement("div");
+        div.textContent = "ERROR"
+        container.appendChild(div);
     }
-    
-    
+
+
 }
 getHumanChoice();
 
